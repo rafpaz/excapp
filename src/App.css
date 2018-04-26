@@ -1,15 +1,18 @@
 #app {
-  font-family: 'Open Sans', sans-serif; 
-}
-#app .table {
+  font-family: 'Open Sans', sans-serif; }
+  #app #search-container {
+    margin: 0 auto;
+    width: 435px;
+    margin-top: 10px; }
+    #app #search-container input {
+      margin-right: 15px; }
+  #app .table {
     margin: 1em;
     display: flex;
-    flex-direction: column; 
-  }
+    flex-direction: column; }
     #app .table .header, #app .table .row {
-      display: flex; 
-    }
-    #app .table .header div, #app .table .row div {
+      display: flex; }
+      #app .table .header div, #app .table .row div {
         flex: 1;
         padding: 0.2rem 0.4em;
         border: 1px solid #eeeeee; }

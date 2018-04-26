@@ -27,9 +27,9 @@ class Table extends Component {
         return (
             <div className="table">
                 <div className="header">
-                    <div>Bla 1</div>
-                    <div>Bla 2</div>
-                    <div>Bla 3</div>
+                    <div>Number</div>
+                    <div>Title</div>
+                    <div>Creation Date</div>
                 </div>
                 <div className="body">
                     {this.state.tableRows}

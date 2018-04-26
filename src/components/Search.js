@@ -13,7 +13,7 @@ class Search extends Component {
 
     render() {
         return (
-            <div>
+            <div id="search-container">
                 <input id="userName"
                         name={"userName"}
                         type="text"

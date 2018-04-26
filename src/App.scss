@@ -1,6 +1,16 @@
 #app {
   font-family: 'Open Sans', sans-serif;
   
+  #search-container{
+    margin: 0 auto;
+    width: 435px;
+    margin-top: 10px;
+
+    input {
+      margin-right: 15px;
+    }
+  }
+
   .table {
     margin: 1em;
     display: flex;
