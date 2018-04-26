@@ -15,18 +15,18 @@ class Search extends Component {
         return (
             <div>
                 <input id="userName"
-                       name={"userName"}
-                       type="text"
-                       placeholder={"User Name"}
-                       value={this.props.userName}
-                       onChange={this.props.handleInputChange}
+                        name={"userName"}
+                        type="text"
+                        placeholder={"User Name"}
+                        value={this.props.userName}
+                        onChange={this.props.handleInputChange}
                 />
                 <input id="repoName"
-                       name={"repoName"}
-                       type="text"
-                       placeholder={"User Repo"}
-                       value={this.props.repoName}
-                       onChange={this.props.handleInputChange}
+                        name={"repoName"}
+                        type="text"
+                        placeholder={"User Repo"}
+                        value={this.props.repoName}
+                        onChange={this.props.handleInputChange}
                 />
                 <button onClick={this.onSearch}>Search</button>
             </div>

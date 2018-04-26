@@ -1,43 +1,39 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import TableRow from './TableRow';
 
 class Table extends Component {
     constructor(props){
         super(props);
         this.state = {
-            issues: {}
+            issues: []
         }
     }
 
     componentDidMount(){
         let fetchUrl = 'https://api.github.com/repos/' + this.props.userName + '/' + this.props.repoName + '/issues';
         fetch(fetchUrl).then(result => {
-           return result.json();
+            return result.json();
         }).then(data => {
+            const rows = data.map((issue, i) => <TableRow data={issue} i={i}/>);
             this.setState({
-                issues: data
+                issues: data,
+                tableRows: rows
             });
         });
     }
 
     render() {
         return (
-            <div id={"table"}>
-                <table style="width:100%">
-                    <tr>
-                        <th>Number</th>
-                        <th>Title</th>
-                        <th>Creation Date</th>
-                    </tr>
-                    this.state.issues.map((issue) => {
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    }
-                });
-                </table>
+            <div className="table">
+                <div className="header">
+                    <div>Bla 1</div>
+                    <div>Bla 2</div>
+                    <div>Bla 3</div>
+                </div>
+                <div className="body">
+                    {this.state.tableRows}
+                </div>
             </div>
         );
     }

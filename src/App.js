@@ -10,8 +10,8 @@ class App extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         this.state = {
             showTable: false,
-            userName: "",
-            repoName: ""
+            userName: "css-modules",
+            repoName: "css-modules"
         }
     }
 
