@@ -3,25 +3,8 @@ import PropTypes from 'prop-types';
 import TableRow from './TableRow';
 
 class Table extends Component {
-    constructor(props){
-        super(props);
-    }
-
-    componentDidMount(){
-        // let fetchUrl = 'https://api.github.com/repos/' + this.props.userName + '/' + this.props.repoName + '/issues';
-        // fetch(fetchUrl).then(result => {
-        //     return result.json();
-        // }).then(data => {
-        //
-        //     this.setState({
-        //         issues: data,
-        //         tableRows: rows
-        //     });
-        // });
-    }
-
     render() {
-        const rows = this.props.tableData.map((issue, i) => <TableRow data={issue} i={i}/>);
+        const rows = this.props.tableData.map((issue, i) => <TableRow key={i } data={issue} i={i}/>);
         return (
             <div className="table">
                 <div className="header">
@@ -32,6 +15,10 @@ class Table extends Component {
                 <div className="body">
                     {rows}
                 </div>
+                <div id="btn-container">
+                    {this.props.showPrev && <button onClick={this.props.onPagination}> Prev </button>}
+                    {this.props.showNext && <button onClick={this.props.onPagination}> Next </button>}
+                </div>
             </div>
         );
     }
@@ -39,7 +26,12 @@ class Table extends Component {
 
 Table.propTypes = {
     showTable: PropTypes.bool,
-    tableData: PropTypes.object
+    tableData: PropTypes.array,
+    nextRequest: PropTypes.string,
+    onPagination: PropTypes.func,
+    onSubmit: PropTypes.func,
+    showNext: PropTypes.bool,
+    showPrev: PropTypes.bool
 };
 
 export default Table;
