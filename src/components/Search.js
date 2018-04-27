@@ -4,11 +4,6 @@ import PropTypes from 'prop-types';
 class Search extends Component {
     constructor(props){
         super(props);
-        this.onSearch = this.onSearch.bind(this);
-    }
-
-    onSearch(){
-        this.props.onSubmit();
     }
 
     render() {
@@ -28,7 +23,7 @@ class Search extends Component {
                         value={this.props.repoName}
                         onChange={this.props.handleInputChange}
                 />
-                <button onClick={this.onSearch}>Search</button>
+                <button onClick={this.props.onSubmit}>Search</button>
             </div>
         );
     }

@@ -10,6 +10,7 @@ class App extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         this.state = {
             showTable: false,
+            tableData: {},
             userName: "css-modules",
             repoName: "css-modules"
         }
@@ -26,11 +27,15 @@ class App extends Component {
     }
 
     onSearch(){
-        console.log("On App Search");
-        this.setState({
-            showTable: true
+        let fetchUrl = 'https://api.github.com/repos/' + this.state.userName + '/' + this.state.repoName + '/issues';
+        fetch(fetchUrl).then(result => {
+            return result.json();
+        }).then(data => {
+            this.setState({
+                tableData: data,
+                showTable: true
+            });
         });
-        console.log(this.state.repoName);
     }
 
     render() {
@@ -45,6 +50,7 @@ class App extends Component {
                 {this.state.showTable &&
                     <Table
                         showTable={this.state.showTable}
+                        tableData={this.state.tableData}
                         userName={this.state.userName}
                         repoName={this.state.repoName}
                     />
